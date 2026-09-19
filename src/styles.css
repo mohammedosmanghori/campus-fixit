@@ -1,0 +1,133 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* CampusFix design system — energetic dark slate + warm amber */
+
+@theme inline {
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Dark slate base */
+  --background: oklch(0.18 0.02 260);
+  --foreground: oklch(0.97 0.01 90);
+  --surface: oklch(0.22 0.025 260);
+  --surface-elevated: oklch(0.27 0.03 260);
+  --card: oklch(0.22 0.025 260);
+  --card-foreground: oklch(0.97 0.01 90);
+  --popover: oklch(0.22 0.025 260);
+  --popover-foreground: oklch(0.97 0.01 90);
+
+  /* Amber primary */
+  --primary: oklch(0.82 0.17 75);
+  --primary-foreground: oklch(0.18 0.02 260);
+  --primary-glow: oklch(0.88 0.16 80);
+
+  /* Orange accent */
+  --accent: oklch(0.72 0.19 45);
+  --accent-foreground: oklch(0.99 0 0);
+
+  --secondary: oklch(0.3 0.03 260);
+  --secondary-foreground: oklch(0.97 0.01 90);
+  --muted: oklch(0.27 0.025 260);
+  --muted-foreground: oklch(0.7 0.02 260);
+
+  --destructive: oklch(0.65 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --success: oklch(0.72 0.16 155);
+  --success-foreground: oklch(0.15 0.02 260);
+  --warning: oklch(0.78 0.16 70);
+  --warning-foreground: oklch(0.18 0.02 260);
+
+  --border: oklch(0.32 0.025 260);
+  --input: oklch(0.27 0.025 260);
+  --ring: oklch(0.82 0.17 75);
+
+  --gradient-hero: linear-gradient(135deg, oklch(0.82 0.17 75) 0%, oklch(0.72 0.19 45) 100%);
+  --gradient-surface: linear-gradient(160deg, oklch(0.22 0.025 260) 0%, oklch(0.18 0.02 260) 100%);
+  --shadow-glow: 0 12px 40px -12px oklch(0.82 0.17 75 / 0.4);
+  --shadow-card: 0 8px 24px -8px oklch(0 0 0 / 0.5);
+}
+
+.dark {
+  --background: oklch(0.18 0.02 260);
+  --foreground: oklch(0.97 0.01 90);
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Space Grotesk';
+    src: url('https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7oUUxjLPmf3Q.woff2') format('woff2');
+    font-weight: 600 700;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('https://fonts.gstatic.com/s/dmsans/v15/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG7Wnc.woff2') format('woff2');
+    font-weight: 400 600;
+    font-display: swap;
+  }
+
+  * { border-color: var(--color-border); }
+
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .gradient-hero { background-image: var(--gradient-hero); }
+  .gradient-surface { background-image: var(--gradient-surface); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .text-gradient {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
